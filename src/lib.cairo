@@ -28,7 +28,7 @@ mod StarkBank {
             assert(amount != 0, 'amount must be greater than 0');
 
             self.balance.write(self.balance.read() + amount);
-        // self.emit(DepositEvent { amount });
+            self.emit(DepositEvent { amount });
         }
 
         fn get_balance(self: @ContractState) -> felt252 {
@@ -39,7 +39,7 @@ mod StarkBank {
             assert(amount != 0, 'amount must be greater than 0');
 
             self.balance.write(self.balance.read() - amount);
-        // self.emit(DepositEvent { amount });
+            self.emit(WithdrawEvent { amount });
         }
     }
 }
